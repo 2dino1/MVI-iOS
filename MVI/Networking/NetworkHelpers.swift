@@ -25,5 +25,5 @@ struct AnyEncodableObject: Encodable {
 
 protocol NetworkDispatcher {
     var session: URLSession { get }
-    func execute<TaskType: DataTask, DecodeType: Decodable>(dataTask: TaskType, decodeType: DecodeType.Type, completion: @escaping TaskExecutionCompletion<DecodeType>)
+    func execute<TaskType, DecodeType>(dataTask: TaskType, decodeType: DecodeType.Type, completion: @escaping TaskExecutionCompletion<DecodeType>) where TaskType: DataTask, DecodeType: Decodable
 }

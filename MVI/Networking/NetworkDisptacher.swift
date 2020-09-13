@@ -11,6 +11,11 @@ import Foundation
 typealias TaskExecutionCompletion<DecodeType> = (Result<DecodeType, NetworkError>) -> Void
 
 final class NetworkDisptacher: NetworkDispatcher {
-    private(set) var session: URLSession = URLSession.shared
+    private(set) var session: URLSession
+    
+    init(session: URLSession? = nil) {
+        self.session = session ?? URLSession.shared
+    }
+    
     func execute<TaskType, DecodeType>(dataTask: TaskType, decodeType: DecodeType.Type, completion: @escaping TaskExecutionCompletion<DecodeType>) where TaskType : DataTask, DecodeType : Decodable {}
 }
