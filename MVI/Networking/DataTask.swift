@@ -53,7 +53,7 @@ extension DataTask {
     private func setDefaultHeaderParameters(forRequest request: inout URLRequest) {
 //        guard let accessToken = TokenItem(keychainManager: KeychainManager.sharedInstance).getKey() else { return }
 //        request.setValue(Constants.Header.Value.authorizationType + accessToken, forHTTPHeaderField: Constants.Header.Key.authorization)
-//        request.setValue(Constants.Header.Value.contentTypeJSON, forHTTPHeaderField: Constants.Header.Key.contentType)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
     private func setCustomHeaderParameters(forRequest request: inout URLRequest) {

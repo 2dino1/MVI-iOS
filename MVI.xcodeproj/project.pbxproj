@@ -21,6 +21,11 @@
 		B83FBA25250502D200F38A31 /* MainViewIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA24250502D200F38A31 /* MainViewIntent.swift */; };
 		B83FBA272505036400F38A31 /* MainViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA262505036400F38A31 /* MainViewEvent.swift */; };
 		B83FBA292505036C00F38A31 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA282505036C00F38A31 /* MainViewState.swift */; };
+		B864ABDA25207E890026191D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABD925207E890026191D /* LocationService.swift */; };
+		B864ABDC25207EA50026191D /* MockableIOLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDB25207EA50026191D /* MockableIOLocationService.swift */; };
+		B864ABDE25207F1D0026191D /* LocationDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDD25207F1D0026191D /* LocationDataTask.swift */; };
+		B864ABE025207FFD0026191D /* NetworkEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDF25207FFD0026191D /* NetworkEndPoints.swift */; };
+		B864ABE3252085690026191D /* LocationUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABE2252085690026191D /* LocationUIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		B83FBA24250502D200F38A31 /* MainViewIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewIntent.swift; sourceTree = "<group>"; };
 		B83FBA262505036400F38A31 /* MainViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewEvent.swift; sourceTree = "<group>"; };
 		B83FBA282505036C00F38A31 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		B864ABD925207E890026191D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B864ABDB25207EA50026191D /* MockableIOLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockableIOLocationService.swift; sourceTree = "<group>"; };
+		B864ABDD25207F1D0026191D /* LocationDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataTask.swift; sourceTree = "<group>"; };
+		B864ABDF25207FFD0026191D /* NetworkEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPoints.swift; sourceTree = "<group>"; };
+		B864ABE2252085690026191D /* LocationUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,9 @@
 		B8297DE724F26CD600470A5B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B864ABD925207E890026191D /* LocationService.swift */,
+				B864ABDB25207EA50026191D /* MockableIOLocationService.swift */,
+				B864ABDD25207F1D0026191D /* LocationDataTask.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -111,6 +124,7 @@
 				B8297DE624F26CCB00470A5B /* Intents */,
 				B8297DE724F26CD600470A5B /* Services */,
 				B83FBA1B2504F9FB00F38A31 /* Networking */,
+				B864ABE1252085270026191D /* Models */,
 				B829817624D6FA3B002E4961 /* Main.storyboard */,
 				B829817924D6FA40002E4961 /* Assets.xcassets */,
 				B829817B24D6FA40002E4961 /* LaunchScreen.storyboard */,
@@ -127,8 +141,17 @@
 				B83FBA1E2504FA7500F38A31 /* NetworkHelpers.swift */,
 				B83FBA202504FB0300F38A31 /* NetworkDisptacher.swift */,
 				B83FBA222504FB7C00F38A31 /* NetworkResponse.swift */,
+				B864ABDF25207FFD0026191D /* NetworkEndPoints.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		B864ABE1252085270026191D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B864ABE2252085690026191D /* LocationUIModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +233,13 @@
 				B8297DE324F1961000470A5B /* Combine.swift in Sources */,
 				B83FBA25250502D200F38A31 /* MainViewIntent.swift in Sources */,
 				B829817124D6FA3B002E4961 /* AppDelegate.swift in Sources */,
+				B864ABE3252085690026191D /* LocationUIModel.swift in Sources */,
 				B83FBA212504FB0300F38A31 /* NetworkDisptacher.swift in Sources */,
+				B864ABDE25207F1D0026191D /* LocationDataTask.swift in Sources */,
+				B864ABDC25207EA50026191D /* MockableIOLocationService.swift in Sources */,
 				B83FBA272505036400F38A31 /* MainViewEvent.swift in Sources */,
+				B864ABE025207FFD0026191D /* NetworkEndPoints.swift in Sources */,
+				B864ABDA25207E890026191D /* LocationService.swift in Sources */,
 				B829817324D6FA3B002E4961 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

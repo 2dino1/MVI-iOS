@@ -17,12 +17,14 @@ final class MainViewIntent {
     private var subscriber: AnyCancellable?
     private let mainEventPublisher: MainEventPublisher
     private let mainStatePublisher: MainStatePublisher
+    private let locationService: LocationService
     private var counter: Int = 0
     
     // MARK: - Init
-    init(mainEventPublisher: MainEventPublisher, mainStatePublisher: MainStatePublisher) {
+    init(mainEventPublisher: MainEventPublisher, mainStatePublisher: MainStatePublisher, locationService: LocationService) {
         self.mainEventPublisher = mainEventPublisher
         self.mainStatePublisher = mainStatePublisher
+        self.locationService = locationService
         self.createSubscriber(using: mainEventPublisher)
     }
     

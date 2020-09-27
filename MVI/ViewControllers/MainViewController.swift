@@ -35,8 +35,14 @@ extension MainViewController {
     private func setupMainViewIntent() {
         self.mainEventPublisher = MainEventPublisher()
         let mainStatePublisher: MainStatePublisher = MainStatePublisher()
-        self.intent = MainViewIntent(mainEventPublisher: mainEventPublisher, mainStatePublisher: mainStatePublisher)
+        self.intent = MainViewIntent(mainEventPublisher: mainEventPublisher, mainStatePublisher: mainStatePublisher, locationService: self.setupIntentDependencies())
         self.createSubscriber(using: mainStatePublisher)
+    }
+    
+    // TOOD: Maybe inject them from outside when this will grow ??
+    private func setupIntentDependencies() -> LocationService {
+        let networkDispatcher: NetworkDispatcher = MockableIONetworkDisptacher(session: URLSession.shared)
+        return MockableIOLocationService(networkDispatcher: networkDispatcher)
     }
     
     private func createSubscriber(using publisher: MainStatePublisher) {
@@ -49,3 +55,5 @@ extension MainViewController {
         }
     }
 }
+
+// pretty cell
