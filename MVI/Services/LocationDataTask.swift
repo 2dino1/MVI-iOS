@@ -38,6 +38,6 @@ extension LocationDataTask {
         
         let name: String
         let address: String
-        let imageURL: URL
+        let imageURL: URL?
     }
 }

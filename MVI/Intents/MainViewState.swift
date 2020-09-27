@@ -10,6 +10,11 @@ import Foundation
 
 protocol MainViewState {}
 
-struct TappedAddButtonState: MainViewState {
-    let counterValue: String
+struct SuccessfulFetchState: MainViewState {
+    let locations: [LocationUIModel]
+}
+
+struct ErrorState: MainViewState {
+    let title: String
+    let body: String
 }

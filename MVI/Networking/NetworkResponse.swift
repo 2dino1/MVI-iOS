@@ -15,6 +15,10 @@ enum NetworkError: String, Error {
     case basicError = "Sorry, something went wrong :("
     case decondingError = "Sorry, server data is malformed"
     
+    var title: String {
+        return "Error"
+    }
+    
     var localizedDescription: String {
         return self.rawValue
     }

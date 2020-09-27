@@ -10,14 +10,9 @@ import UIKit
 import Combine
 
 final class MainViewController: UIViewController {
-    
-    // MARK: - IBOutlets/IBActions
-    @IBOutlet private weak var counterLabel: UILabel!
-    @IBAction private func didTapAddButton(_ sender: Any) {
-        self.mainEventPublisher.send(TappedAddButtonEvent())
-    }
-    
     // MARK: - Properties
+    @IBOutlet private weak var tableView: UITableView!
+    private var dataSource: DataSource!
     private var intent: MainViewIntent!
     private var mainEventPublisher: MainEventPublisher!
     private var mainStateSubscriber: AnyCancellable?
@@ -26,12 +21,41 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupTableView()
         self.setupMainViewIntent()
+        self.mainEventPublisher.send(LoadLocationsData())
+    }
+}
+
+// MARK: - Table View Data Source
+extension MainViewController {
+    private func setupTableView() {
+        self.createDataSource()
+        self.tableView.dataSource = self.dataSource
+    }
+    
+    private func createDataSource() {
+        self.dataSource = UITableViewDiffableDataSource(tableView: self.tableView) { (tableView, indexPath, model) -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) 
+            cell.textLabel?.text = model.name
+            cell.detailTextLabel?.text = model.address
+            
+            return cell
+        }
+    }
+    
+    private func updateDataSource(using elements: [LocationUIModel], animated: Bool = true) {
+        var snapshot: Snapshot = Snapshot ()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(elements)
+        
+        self.dataSource.apply(snapshot)
     }
 }
 
 // MARK: - Private Methods
 extension MainViewController {
+    
     private func setupMainViewIntent() {
         self.mainEventPublisher = MainEventPublisher()
         let mainStatePublisher: MainStatePublisher = MainStatePublisher()
@@ -49,11 +73,17 @@ extension MainViewController {
         self.mainStateSubscriber = publisher.sink(receiveCompletion: { (error) in
             print("Error is \(error)")
         }) { [unowned self] (state) in
-            if let addButtonState = state as? TappedAddButtonState {
-                self.counterLabel.text = addButtonState.counterValue
-            }
+            self.handleStates(state)
+        }
+    }
+    
+    private func handleStates(_ state: MainViewState) {
+        if let successfulFetchState = state as? SuccessfulFetchState {
+            self.updateDataSource(using: successfulFetchState.locations)
+        }
+        
+        if let _ = state as? ErrorState {
+            // TODO: Pop up an Alert View
         }
     }
 }
-
-// pretty cell

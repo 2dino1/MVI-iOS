@@ -10,6 +10,4 @@ import Foundation
 
 protocol MainViewEvent {}
 
-struct TappedAddButtonEvent: MainViewEvent {}
-
-struct LoadViewData: MainViewEvent {}
+struct LoadLocationsData: MainViewEvent {}

@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct LocationUIModel {
+struct LocationUIModel: Hashable {
     let name: String
     let address: String
-    let imageURL: URL
+    let imageURL: URL?
 }

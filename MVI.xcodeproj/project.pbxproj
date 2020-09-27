@@ -26,6 +26,7 @@
 		B864ABDE25207F1D0026191D /* LocationDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDD25207F1D0026191D /* LocationDataTask.swift */; };
 		B864ABE025207FFD0026191D /* NetworkEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDF25207FFD0026191D /* NetworkEndPoints.swift */; };
 		B864ABE3252085690026191D /* LocationUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABE2252085690026191D /* LocationUIModel.swift */; };
+		B864ABE62520B1B20026191D /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABE52520B1B20026191D /* DiffableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		B864ABDD25207F1D0026191D /* LocationDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataTask.swift; sourceTree = "<group>"; };
 		B864ABDF25207FFD0026191D /* NetworkEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPoints.swift; sourceTree = "<group>"; };
 		B864ABE2252085690026191D /* LocationUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUIModel.swift; sourceTree = "<group>"; };
+		B864ABE52520B1B20026191D /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		B8297DE524F26CBF00470A5B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B864ABE52520B1B20026191D /* DiffableDataSource.swift */,
 				B829817424D6FA3B002E4961 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
@@ -120,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				B8297DE424F26CA300470A5B /* ApplicationDelegates */,
+				B864ABE42520A55F0026191D /* Views */,
 				B8297DE524F26CBF00470A5B /* ViewControllers */,
 				B8297DE624F26CCB00470A5B /* Intents */,
 				B8297DE724F26CD600470A5B /* Services */,
@@ -152,6 +156,13 @@
 				B864ABE2252085690026191D /* LocationUIModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B864ABE42520A55F0026191D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				B83FBA1F2504FA7500F38A31 /* NetworkHelpers.swift in Sources */,
 				B83FBA232504FB7C00F38A31 /* NetworkResponse.swift in Sources */,
 				B829817524D6FA3B002E4961 /* MainViewController.swift in Sources */,
+				B864ABE62520B1B20026191D /* DiffableDataSource.swift in Sources */,
 				B83FBA292505036C00F38A31 /* MainViewState.swift in Sources */,
 				B83FBA1D2504FA0F00F38A31 /* DataTask.swift in Sources */,
 				B8297DE324F1961000470A5B /* Combine.swift in Sources */,

@@ -18,7 +18,6 @@ final class MainViewIntent {
     private let mainEventPublisher: MainEventPublisher
     private let mainStatePublisher: MainStatePublisher
     private let locationService: LocationService
-    private var counter: Int = 0
     
     // MARK: - Init
     init(mainEventPublisher: MainEventPublisher, mainStatePublisher: MainStatePublisher, locationService: LocationService) {
@@ -27,14 +26,32 @@ final class MainViewIntent {
         self.locationService = locationService
         self.createSubscriber(using: mainEventPublisher)
     }
-    
-    // MARK: - Private Methods
+}
+
+// MARK: - Private Methods
+extension MainViewIntent {
     private func createSubscriber(using publisher: MainEventPublisher) {
         self.subscriber = publisher.sink(receiveValue: { [unowned self] (event) in
-            if event is TappedAddButtonEvent {
-                self.counter += 1
-                self.mainStatePublisher.send(TappedAddButtonState(counterValue: "Counter value: \(self.counter)"))
+            if event is LoadLocationsData {
+                self.loadLocations()
             }
         })
+    }
+    
+    private func loadLocations() {
+        self.locationService.fetchLocations { [weak self] (result) in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let locations): self.mainStatePublisher.send(SuccessfulFetchState(locations: self.mapLocations(using: locations)))
+            case .failure(let error): self.mainStatePublisher.send(ErrorState(title: error.title, body: error.localizedDescription))
+            }
+        }
+    }
+    
+    @inline(__always) private func mapLocations(using locations: [LocationDataTask.LocationDetails]) -> [LocationUIModel] {
+        return locations.map { (location) in
+            return LocationUIModel(name: location.name, address: location.address, imageURL: location.imageURL)
+        }
     }
 }
