@@ -10,4 +10,4 @@ import Foundation
 
 protocol MainViewEvent {}
 
-struct LoadLocationsData: MainViewEvent {}
+struct LoadLocationsDataEvent: MainViewEvent {}

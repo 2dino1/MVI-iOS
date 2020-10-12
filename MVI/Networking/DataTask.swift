@@ -29,9 +29,9 @@ extension DataTask {
     
     private var url: URL? {
         var urlComponents = URLComponents(string: baseUrl)
-        urlComponents?.path = path
-        if method == .get, let parameters = queryParameters {
-            urlComponents?.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents?.path = self.path
+        if self.method == .get, let parameters = self.queryParameters {
+            urlComponents?.queryItems = parameters.map { queryItem in URLQueryItem(name: queryItem.key, value: queryItem.value) }
         }
         return urlComponents?.url
     }
@@ -51,9 +51,8 @@ extension DataTask {
     }
     
     private func setDefaultHeaderParameters(forRequest request: inout URLRequest) {
-//        guard let accessToken = TokenItem(keychainManager: KeychainManager.sharedInstance).getKey() else { return }
-//        request.setValue(Constants.Header.Value.authorizationType + accessToken, forHTTPHeaderField: Constants.Header.Key.authorization)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
     }
     
     private func setCustomHeaderParameters(forRequest request: inout URLRequest) {

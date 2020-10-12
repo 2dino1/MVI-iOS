@@ -9,7 +9,7 @@
 import Foundation
 
 // TODO: This is intented to make the network errors more clear and typesafe
-// For now it does not do anything, just has a specific error
+// For now it does not do anything very fancy, just has a specific error
 
 enum NetworkError: String, Error {
     case basicError = "Sorry, something went wrong :("

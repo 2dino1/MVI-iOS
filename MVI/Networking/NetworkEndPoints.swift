@@ -13,7 +13,7 @@ enum APIEndPoints: String {
     
     var endPointPath: String {
         switch self {
-        case .locations: return "locations"
+        case .locations: return "/locations"
         }
     }
 }

@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
         
         self.setupTableView()
         self.setupMainViewIntent()
-        self.mainEventPublisher.send(LoadLocationsData())
+        self.mainEventPublisher.send(LoadLocationsDataEvent())
     }
 }
 
@@ -35,7 +35,7 @@ extension MainViewController {
     }
     
     private func createDataSource() {
-        self.dataSource = UITableViewDiffableDataSource(tableView: self.tableView) { (tableView, indexPath, model) -> UITableViewCell? in
+        self.dataSource = DataSource(tableView: self.tableView) { (tableView, indexPath, model) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) 
             cell.textLabel?.text = model.name
             cell.detailTextLabel?.text = model.address
@@ -45,7 +45,7 @@ extension MainViewController {
     }
     
     private func updateDataSource(using elements: [LocationUIModel], animated: Bool = true) {
-        var snapshot: Snapshot = Snapshot ()
+        var snapshot: Snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(elements)
         
@@ -53,9 +53,16 @@ extension MainViewController {
     }
 }
 
+// MARK: - Table View Delegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let user = self.dataSource.itemIdentifier(for: indexPath) else { return }
+        print("Identifier")
+    }
+}
+
 // MARK: - Private Methods
 extension MainViewController {
-    
     private func setupMainViewIntent() {
         self.mainEventPublisher = MainEventPublisher()
         let mainStatePublisher: MainStatePublisher = MainStatePublisher()

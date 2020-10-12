@@ -32,7 +32,7 @@ final class MainViewIntent {
 extension MainViewIntent {
     private func createSubscriber(using publisher: MainEventPublisher) {
         self.subscriber = publisher.sink(receiveValue: { [unowned self] (event) in
-            if event is LoadLocationsData {
+            if event is LoadLocationsDataEvent {
                 self.loadLocations()
             }
         })
@@ -51,7 +51,7 @@ extension MainViewIntent {
     
     @inline(__always) private func mapLocations(using locations: [LocationDataTask.LocationDetails]) -> [LocationUIModel] {
         return locations.map { (location) in
-            return LocationUIModel(name: location.name, address: location.address, imageURL: location.imageURL)
+            return LocationUIModel(name: location.name, address: location.address, imageURL: URL(string: location.imageURL))
         }
     }
 }

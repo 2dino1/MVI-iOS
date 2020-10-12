@@ -24,7 +24,7 @@ final class MockableIONetworkDisptacher: NetworkDispatcher {
         guard let request = dataTask.urlRequest else { return }
         
         self.session.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error != nil else {
+            guard let data = data, error == nil else {
                 DispatchQueue.main.async { completion(.failure(.basicError)) }
                 return
             }
@@ -35,6 +35,6 @@ final class MockableIONetworkDisptacher: NetworkDispatcher {
             } catch {
                 DispatchQueue.main.async { completion(.failure(.decondingError)) }
             }
-        }
+        }.resume()
     }
 }

@@ -26,6 +26,10 @@ struct LocationDataTask: DataTask {
 
 extension LocationDataTask {
     struct Location: Decodable {
+        private enum CodingKeys: String, CodingKey {
+            case locationsDetails = "locations"
+        }
+        
         let locationsDetails: [LocationDetails]
     }
     
@@ -38,6 +42,6 @@ extension LocationDataTask {
         
         let name: String
         let address: String
-        let imageURL: URL?
+        let imageURL: String
     }
 }
