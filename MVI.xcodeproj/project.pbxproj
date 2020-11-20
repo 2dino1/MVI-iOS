@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B828F160256804EA00EEE347 /* AddCoreDataCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828F15F256804EA00EEE347 /* AddCoreDataCombine.swift */; };
 		B8297DE324F1961000470A5B /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8297DE224F1961000470A5B /* Combine.swift */; };
 		B829817124D6FA3B002E4961 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829817024D6FA3B002E4961 /* AppDelegate.swift */; };
 		B829817324D6FA3B002E4961 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829817224D6FA3B002E4961 /* SceneDelegate.swift */; };
@@ -21,6 +22,8 @@
 		B83FBA25250502D200F38A31 /* MainViewIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA24250502D200F38A31 /* MainViewIntent.swift */; };
 		B83FBA272505036400F38A31 /* MainViewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA262505036400F38A31 /* MainViewEvent.swift */; };
 		B83FBA292505036C00F38A31 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83FBA282505036C00F38A31 /* MainViewState.swift */; };
+		B84AE0F825459696001BC762 /* FunctionExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84AE0F725459696001BC762 /* FunctionExamples.swift */; };
+		B862D526253CA69F0075931C /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862D525253CA69F0075931C /* PropertyWrapper.swift */; };
 		B864ABDA25207E890026191D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABD925207E890026191D /* LocationService.swift */; };
 		B864ABDC25207EA50026191D /* MockableIOLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDB25207EA50026191D /* MockableIOLocationService.swift */; };
 		B864ABDE25207F1D0026191D /* LocationDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B864ABDD25207F1D0026191D /* LocationDataTask.swift */; };
@@ -30,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B828F15F256804EA00EEE347 /* AddCoreDataCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoreDataCombine.swift; sourceTree = "<group>"; };
 		B8297DE224F1961000470A5B /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 		B829816D24D6FA3B002E4961 /* MVI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B829817024D6FA3B002E4961 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		B83FBA24250502D200F38A31 /* MainViewIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewIntent.swift; sourceTree = "<group>"; };
 		B83FBA262505036400F38A31 /* MainViewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewEvent.swift; sourceTree = "<group>"; };
 		B83FBA282505036C00F38A31 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		B84AE0F725459696001BC762 /* FunctionExamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionExamples.swift; sourceTree = "<group>"; };
+		B862D525253CA69F0075931C /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
 		B864ABD925207E890026191D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		B864ABDB25207EA50026191D /* MockableIOLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockableIOLocationService.swift; sourceTree = "<group>"; };
 		B864ABDD25207F1D0026191D /* LocationDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataTask.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 			children = (
 				B829817024D6FA3B002E4961 /* AppDelegate.swift */,
 				B829817224D6FA3B002E4961 /* SceneDelegate.swift */,
+				B84AE0F725459696001BC762 /* FunctionExamples.swift */,
 			);
 			path = ApplicationDelegates;
 			sourceTree = "<group>";
@@ -99,6 +106,7 @@
 				B864ABD925207E890026191D /* LocationService.swift */,
 				B864ABDB25207EA50026191D /* MockableIOLocationService.swift */,
 				B864ABDD25207F1D0026191D /* LocationDataTask.swift */,
+				B828F15F256804EA00EEE347 /* AddCoreDataCombine.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				B829817B24D6FA40002E4961 /* LaunchScreen.storyboard */,
 				B829817E24D6FA40002E4961 /* Info.plist */,
 				B8297DE224F1961000470A5B /* Combine.swift */,
+				B862D525253CA69F0075931C /* PropertyWrapper.swift */,
 			);
 			path = MVI;
 			sourceTree = "<group>";
@@ -240,10 +249,13 @@
 				B83FBA232504FB7C00F38A31 /* NetworkResponse.swift in Sources */,
 				B829817524D6FA3B002E4961 /* MainViewController.swift in Sources */,
 				B864ABE62520B1B20026191D /* DiffableDataSource.swift in Sources */,
+				B828F160256804EA00EEE347 /* AddCoreDataCombine.swift in Sources */,
 				B83FBA292505036C00F38A31 /* MainViewState.swift in Sources */,
 				B83FBA1D2504FA0F00F38A31 /* DataTask.swift in Sources */,
 				B8297DE324F1961000470A5B /* Combine.swift in Sources */,
 				B83FBA25250502D200F38A31 /* MainViewIntent.swift in Sources */,
+				B862D526253CA69F0075931C /* PropertyWrapper.swift in Sources */,
+				B84AE0F825459696001BC762 /* FunctionExamples.swift in Sources */,
 				B829817124D6FA3B002E4961 /* AppDelegate.swift in Sources */,
 				B864ABE3252085690026191D /* LocationUIModel.swift in Sources */,
 				B83FBA212504FB0300F38A31 /* NetworkDisptacher.swift in Sources */,

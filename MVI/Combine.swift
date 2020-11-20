@@ -54,7 +54,7 @@ final class DWDataTaskSubscription<S: Subscriber>: Subscription where S.Failure 
 final class DWSink<Input, Failure: Error>: Subscriber, Cancellable {
     let receiveValue: (Input) -> Void
     let receiveCompletion: (Subscribers.Completion<Failure>) -> Void
-    var subscription: Subscription?
+    private var subscription: Subscription?
     
     init(receiveValue: @escaping (Input) -> Void, receiveCompletion: @escaping (Subscribers.Completion<Failure>) -> Void) {
         self.receiveValue = receiveValue
